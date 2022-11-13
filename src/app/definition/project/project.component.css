@@ -1,0 +1,125 @@
+header{
+    margin-top: 2em;
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+}
+
+.btn{
+    background-color: rgb(175, 0, 0);
+    padding: 10px 20px;
+    border-radius: 1px;
+    border: none;
+    color:white;
+    cursor: pointer;
+    margin: 0 1em;
+    box-shadow: 1px 1px 0px rgb(100, 0, 0),
+                2px 2px 0px rgb(100, 0, 0),
+                3px 3px 0px rgb(100, 0, 0);
+}
+
+main{
+    display: flex;
+    margin-top: 2em;
+}
+
+.side-col{
+    width: 20vw;
+}
+
+.input-control{
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1em 0;
+}
+
+.input-control select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: .5em 9em .5em .5em;
+    background: transparent;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSByfEzpFaq0ZNdfIMArstNTG50l10KH0QeEg&usqp=CAU")!important;
+    background-position-x: 98%;
+    background-position-y: 5px;
+    background-size: 10%;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    border: 2px solid #444444;
+
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid #dddddd;
+    box-shadow: 1px 1px 0px #999,
+                2px 2px 0px #999,
+                3px 3px 0px #999,
+                4px 4px 0px #999,
+                5px 5px 0px #999,
+                6px 6px 0px #999;
+  }
+  
+  td {
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 8px;
+    height: 1.5em;
+  }
+
+  th {
+    border: 1px solid #a7a7a7;
+    text-align: left;
+    padding: 8px;
+    height: 1.5em;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #dddddd;
+  }
+
+.main-col{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-left: 2em;
+}
+
+.upper-main-col{
+    display: flex;
+    gap: 1em;
+}
+
+.input-control input[type="text"]{
+    padding: .5em .2em;
+    border-radius: 5px;
+    border: 2px solid #444444;
+}
+
+span{
+    font-weight: bold;
+}
+
+.lower-main-col{
+    display: flex;
+    gap: 1em;
+    margin-bottom: 10vh;
+}
+
+.mini-tables-container{
+    display: flex;
+    gap: 1em;
+}
+
+.edge-baseline{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.ml{
+    margin-left: 1em;
+}
