@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProjectComponent } from './definition/project/project.component';
 import { MainComponent } from './main/main.component';
+import { TreeGridModule } from '@syncfusion/ej2-angular-treegrid';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MainComponent } from './main/main.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TreeGridModule
   ],
   providers: [],
   bootstrap: [AppComponent]

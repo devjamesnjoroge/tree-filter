@@ -10,27 +10,7 @@
 <section>
     <main>
         <div class="side-col">
-            <div class="input-control">
-                <label for="view">Tree View</label>
-                <select name="view" id="view">
-                    <option value="blank">        
-                    </option>
-                    <option value="Industry">
-                        <label class="check" for="industry">Industry</label>
-                    </option>
-                    <option value="Segment">
-                        <label class="check" for="segment">Segment</label>
-                    </option>
-                </select>
-            </div>
-            <table>
-                <tr><td>Asset breaks</td></tr>
-                <tr><td></td></tr>
-                <tr><td></td></tr>
-                <tr><td></td></tr>
-                <tr><td></td></tr>
-                <tr><td></td></tr>
-            </table>
+            <ejs-treegrid [dataSource]="data" childMapping="subtasks"></ejs-treegrid>
         </div>
         <div class="main-col">
             <div class="upper-main-col">

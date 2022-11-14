@@ -1,6 +1,16 @@
+@import '../node_modules/@syncfusion/ej2-material-theme/styles/material.css';
 /* You can add global styles to this file, and also import other style files
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&display=swap');
 
 *{
     font-family: 'Montserrat Alternates', sans-serif;
 } */
+
+*{
+    font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+    font-size: 13px;
+}
+
+#js-licensing{
+    display: none!important;
+}
