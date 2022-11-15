@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProjectComponent } from './definition/project/project.component';
 import { MainComponent } from './main/main.component';
-import { TreeGridModule } from '@syncfusion/ej2-angular-treegrid';
+import { TreeGridModule, PageService, SortService, FilterService } from '@syncfusion/ej2-angular-treegrid';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,11 @@ import { TreeGridModule } from '@syncfusion/ej2-angular-treegrid';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TreeGridModule
+    TreeGridModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
-  providers: [],
+  providers: [PageService, SortService, FilterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

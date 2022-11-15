@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PageSettingsModel, SortSettingsModel, FilterSettingsModel } from '@syncfusion/ej2-angular-treegrid';
+import {DataManager, WebApiAdaptor} from '@syncfusion/ej2-data';
+import { RegionService } from 'src/app/region.service';
 
 @Component({
   selector: 'app-project',
@@ -7,81 +10,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectComponent implements OnInit {
 
+  constructor(private service: RegionService) { }
+
   data: any[] =[]
 
-  constructor() { }
+  regions: any[] = this.service.regions
+
+  public pageSettings!: PageSettingsModel;
+
+  public sortSettings!: SortSettingsModel;
+
+  public filterSettings!: FilterSettingsModel;
+
+  public dataManager!: DataManager;
+
+  handleChange = (e: any) => {
+    console.log(e)
+  }
 
   ngOnInit(): void {
+    this.pageSettings = {pageSize:10}
+    this.sortSettings = {
+      columns: [{
+        field: "treeView", direction: "Descending"
+      }]
+    }
+    this.dataManager = new DataManager({})
     this.data = [
-      {
-        "Tree view": "Vancouver strike1",
-        subtasks: [
-          {
-          "Tree view": "Industry",
-          subtasks: [
-            {
-            "Tree view": "Transport",
-            
-            }
-          ]
-          },
-          {
-            "Tree view": "Segment",
-            subtasks: [
-              {
-              "Tree view": "Space exploration",
-              
-              }
-            ]
-            }
-        ]
-      },
-      {
-        "Tree view": "Vancouver strike2",
-        subtasks: [
-          {
-          "Tree view": "Industry",
-          subtasks: [
-            {
-            "Tree view": "Transport",
-            
-            }
-          ]
-          },
-          {
-            "Tree view": "Segment",
-            subtasks: [
-              {
-              "Tree view": "Space exploration",
-              
-              }
-            ]
-            }
-        ]
-      },
-      {
-        "Tree view": "Vancouver strike3",
-        subtasks: [
-          {
-          "Tree view": "Industry",
-          subtasks: [
-            {
-            "Tree view": "Transport",
-            
-            }
-          ]
-          },
-          {
-            "Tree view": "Segment",
-            subtasks: [
-              {
-              "Tree view": "Space exploration",
-              
-              }
-            ]
-            }
-        ]
-      }
+      {nameId: 1,treeView: "Product Name"},
+      {nameId: 2,treeView: "Industry", parentId: 1},
+      {nameId: 3,treeView: "project"},
     ]
   }
 

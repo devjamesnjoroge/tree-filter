@@ -85,15 +85,18 @@ table {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    padding-left: 2em;
+    width: 80%;
+    margin: 0 3em;
 }
 
 .upper-main-col{
     display: flex;
-    gap: 1em;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.input-control input[type="text"]{
+.input-control input[type="text"],
+.input-control input[type="date"]{
     padding: .5em .2em;
     border-radius: 5px;
     border: 2px solid #444444;
@@ -105,13 +108,28 @@ span{
 
 .lower-main-col{
     display: flex;
-    gap: 1em;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 3em;
     margin-bottom: 10vh;
 }
 
 .mini-tables-container{
     display: flex;
     gap: 1em;
+}
+
+.arrows-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1em;
+    gap: 2em;
+}
+
+.mat-icon{
+    cursor: pointer;
 }
 
 .edge-baseline{

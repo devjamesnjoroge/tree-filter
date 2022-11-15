@@ -9,11 +9,41 @@
 </section>
 <section>
     <main>
+
+        <!-- Side Column Container -->
+
         <div class="side-col">
-            <ejs-treegrid [dataSource]="data" childMapping="subtasks"></ejs-treegrid>
+
+            <!-- Tree Grid ej2 library by syncfusion -->
+
+            <ejs-treegrid idMapping="nameId" parentIdMapping="parentId"[treeColumnIndex]="1" [dataSource]="data" childMapping="subtasks" [allowPaging]="true" [pageSettings]="pageSettings" [allowFiltering]="true" [allowSorting]="true" [sortSettings]="sortSettings">
+                <e-columns>
+                    <e-column
+                    field="nameId"
+                    headerText="Id"
+                    width="5"
+                    textAlign="Left"
+                    ></e-column>
+                    <e-column
+                    field="treeView"
+                    headerText="Tree view"
+                    width="130"
+                    textAlign="Left"
+                    ></e-column>
+                </e-columns>
+            </ejs-treegrid>
         </div>
+
+        <!-- Main column Section -->
+
         <div class="main-col">
+
+            <!-- Upper main column container -->
+
             <div class="upper-main-col">
+
+                <!-- Inputs Column 1 -->
+                
                 <div class="desc-col-1">
                     <div class="input-control">
                         <label for="view">Industry</label>
@@ -38,14 +68,11 @@
                     </div>
                     <div class="input-control">
                     <label for="view">Region</label>
-                    <select name="view" id="view">
+                    <select name="view" id="region">
                         <option value="blank">        
                         </option>
-                        <option value="Industry">
-                            <label class="check" for="industry">Industry</label>
-                        </option>
-                        <option value="Segment">
-                            <label class="check" for="segment">Segment</label>
+                        <option *ngFor="let region of regions" value="{{region.region}}">
+                            {{region.region}}
                         </option>
                     </select>
                 </div>
@@ -64,6 +91,9 @@
                 </div>
                     
                 </div>
+
+                <!-- Inputs Column 2 -->
+
                 <div class="desc-col-2">
                     <div class="input-control">
                         <label for="view">Segment</label>
@@ -84,23 +114,25 @@
                     </div>
                     <div class="input-control">
                         <label for="cost-code">Start Date</label>
-                        <input type="text">
+                        <input type="date">
                     </div>
                     <div class="input-control">
                     <label for="view">Country</label>
                     <select name="view" id="view">
+
                         <option value="blank">        
                         </option>
-                        <option value="Industry">
-                            <label class="check" for="industry">Industry</label>
+                        <option *ngFor="let region of regions" value="Industry">
+                            <label class="check" for="industry">{{region.region}}</label>
                         </option>
-                        <option value="Segment">
-                            <label class="check" for="segment">Segment</label>
-                        </option>
+        
                     </select>
                 </div>
                     
                 </div>
+
+                <!-- Inputs Column 3 -->
+
                 <div class="desc-col-3">
                     <br>
                     <br>
@@ -110,7 +142,7 @@
                     </div>
                     <div class="input-control">
                         <label for="cost-code">End Date</label>
-                        <input type="text">
+                        <input type="date">
                     </div>
                     <div class="input-control">
                         <label for="cost-code">Location</label>
@@ -119,8 +151,17 @@
                 </div>
             </div>
             <span>Currency</span>
+
+            <!-- Main lower column container -->
+
             <div class="lower-main-col">
+
+                <!-- Currency tables Container -->
+
                 <div class="mini-tables-container">
+
+                    <!-- Constant Currency table -->
+
                     <table>
                         <tr><th>Repository</th></tr>
                         <tr><td>USD – United States Dollar
@@ -136,6 +177,16 @@
                         <tr><td>SGD – Singapore Dollar
                         </td></tr>
                     </table>
+
+                    <!-- Shifting Currency Arrows -->
+
+                    <div class="arrows-container">
+                        <mat-icon class="mat-icon" [ngStyle]="{'color':'red'}" aria-hidden="false" aria-label="Add Currency icon" fontIcon="arrow_forward"></mat-icon>
+                        <mat-icon class="mat-icon" [ngStyle]="{'color':'red'}" aria-hidden="false" aria-label="Remove Currency icon" fontIcon="arrow_back"></mat-icon>
+                    </div>
+
+                    <!-- Input currency table -->
+
                     <table>
                         <tr><th>Selection</th></tr>
                         <tr><td>USD – United States Dollar
@@ -149,13 +200,17 @@
                         <tr><td></td></tr>
                     </table>
                 </div>
+                
+
+                <!-- Edge Column contain with products table -->
+
                 <div class="edge-col-container">
                     <div class="btns ml">
                         <span>Products</span>
                         <button class="btn btn-col">Add Products</button>
                         <button class="btn btn-col">Delete Products</button>
                     </div>
-                    <table style="margin-top: 2em; margin-left: 3em;">
+                    <table style="margin-top: 2em;">
                         <tr>
                             <th>Product Name</th>
                             <th>Product Type</th>
