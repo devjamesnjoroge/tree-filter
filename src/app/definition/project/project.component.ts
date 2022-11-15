@@ -16,6 +16,16 @@ export class ProjectComponent implements OnInit {
 
   regions: any[] = this.service.regions
 
+  regionSelected: string = "blank";
+
+  countrySelected!: string;
+
+  countries: any[] = []
+
+  print(){
+    alert(this.regionSelected)
+  }
+
   public pageSettings!: PageSettingsModel;
 
   public sortSettings!: SortSettingsModel;
@@ -25,10 +35,16 @@ export class ProjectComponent implements OnInit {
   public dataManager!: DataManager;
 
   handleChange = (e: any) => {
-    console.log(e)
+    this.countries = this.service.regions.find((region) => region.region === this.regionSelected).countries
+  }
+
+  regionChange(){
+    this.countries = this.service.regions.find((region) => region.region === this.regionSelected).countries
+    console.log("event")
   }
 
   ngOnInit(): void {
+
     this.pageSettings = {pageSize:10}
     this.sortSettings = {
       columns: [{

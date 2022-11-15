@@ -68,10 +68,8 @@
                     </div>
                     <div class="input-control">
                     <label for="view">Region</label>
-                    <select name="view" id="region">
-                        <option value="blank">        
-                        </option>
-                        <option *ngFor="let region of regions" value="{{region.region}}">
+                    <select name="view" id="region" [(ngModel)]="regionSelected" (change)='regionChange()'>
+                        <option *ngFor="let region of regions" >
                             {{region.region}}
                         </option>
                     </select>
@@ -118,12 +116,12 @@
                     </div>
                     <div class="input-control">
                     <label for="view">Country</label>
-                    <select name="view" id="view">
+                    <select name="view" [(ngModel)]="countrySelected">
 
                         <option value="blank">        
                         </option>
-                        <option *ngFor="let region of regions" value="Industry">
-                            <label class="check" for="industry">{{region.region}}</label>
+                        <option matNativeControl *ngFor="let country of countries" value="{{country}}">
+                            <label class="check" for="industry">{{country}}</label>
                         </option>
         
                     </select>

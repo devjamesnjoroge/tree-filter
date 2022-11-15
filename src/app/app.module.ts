@@ -8,6 +8,9 @@ import { MainComponent } from './main/main.component';
 import { TreeGridModule, PageService, SortService, FilterService } from '@syncfusion/ej2-angular-treegrid';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import {MatIconModule} from '@angular/material/icon';
     AppRoutingModule,
     TreeGridModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatSelectModule
   ],
   providers: [PageService, SortService, FilterService],
   bootstrap: [AppComponent]

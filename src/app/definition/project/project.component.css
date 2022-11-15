@@ -86,7 +86,7 @@ table {
     flex-direction: column;
     gap: 1em;
     width: 80%;
-    margin: 0 3em;
+    margin: 0 2em;
 }
 
 .upper-main-col{
@@ -125,7 +125,7 @@ span{
     align-items: center;
     justify-content: center;
     margin: 0 1em;
-    gap: 2em;
+    gap: 1em;
 }
 
 .mat-icon{
