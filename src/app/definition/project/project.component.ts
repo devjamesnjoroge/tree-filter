@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PageSettingsModel, SortSettingsModel, FilterSettingsModel } from '@syncfusion/ej2-angular-treegrid';
 import {DataManager, WebApiAdaptor} from '@syncfusion/ej2-data';
 import { RegionService } from 'src/app/region.service';
+import { CurrencyService } from 'src/app/service/currency.service';
 
 @Component({
   selector: 'app-project',
@@ -10,11 +11,19 @@ import { RegionService } from 'src/app/region.service';
 })
 export class ProjectComponent implements OnInit {
 
-  constructor(private service: RegionService) { }
+  tdStyle!: string;
+
+  constructor(private service: RegionService, private curService: CurrencyService) { }
 
   data: any[] =[]
 
+  tdid!: any;
+
   regions: any[] = this.service.regions
+
+  constCurrencies : any[] = this.curService.currencies
+
+  selectedCurrencies: any[] = []
 
   regionSelected: string = "blank";
 
@@ -43,7 +52,13 @@ export class ProjectComponent implements OnInit {
     console.log("event")
   }
 
+  addSelection(id: any, currency: any){
+    this.tdid = id
+    console.log(id, currency)
+  }
   ngOnInit(): void {
+
+    this.tdStyle = 'td-default'
 
     this.pageSettings = {pageSize:10}
     this.sortSettings = {

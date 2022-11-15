@@ -68,6 +68,7 @@ table {
     text-align: left;
     padding: 8px;
     height: 1.5em;
+    min-width: 12vw;
   }
 
   th {
@@ -141,4 +142,12 @@ span{
 
 .ml{
     margin-left: 1em;
+}
+
+.td-default{
+    background-color: initial;
+}
+
+.td-active{
+    background-color: red;
 }

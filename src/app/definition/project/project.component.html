@@ -162,18 +162,10 @@
 
                     <table>
                         <tr><th>Repository</th></tr>
-                        <tr><td>USD – United States Dollar
-                        </td></tr>
-                        <tr><td>GBP – Great Britain Pound
-                        </td></tr>
-                        <tr><td>CAD – Canadian Dollar
-                        </td></tr>
-                        <tr><td>EUR – Euro
-                        </td></tr>
-                        <tr><td>INR – Indian Rupee
-                        </td></tr>
-                        <tr><td>SGD – Singapore Dollar
-                        </td></tr>
+                        <tr *ngFor="let currency of constCurrencies">
+                            <td [ngClass]="(tdid === currency.id)?'td-active':'td-default'" (click)="addSelection(currency.id, currency.currency)">USD – United States Dollar
+                        </td>
+                        </tr>
                     </table>
 
                     <!-- Shifting Currency Arrows -->
@@ -187,15 +179,8 @@
 
                     <table>
                         <tr><th>Selection</th></tr>
-                        <tr><td>USD – United States Dollar
+                        <tr *ngFor="let currency of constCurrencies"><td>
                         </td></tr>
-                        <tr><td>GBP – Great Britain Pound
-                        </td></tr>
-                        <tr><td>CAD – Canadian Dollar
-                        </td></tr>
-                        <tr><td></td></tr>
-                        <tr><td></td></tr>
-                        <tr><td></td></tr>
                     </table>
                 </div>
                 
