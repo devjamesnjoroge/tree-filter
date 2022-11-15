@@ -19,6 +19,8 @@ export class ProjectComponent implements OnInit {
 
   tdid!: any;
 
+  tdidtwo!: any;
+
   regions: any[] = this.service.regions
 
   constCurrencies : any[] = this.curService.currencies
@@ -30,6 +32,8 @@ export class ProjectComponent implements OnInit {
   countrySelected!: string;
 
   countries: any[] = []
+
+  temp!: any;
 
   print(){
     alert(this.regionSelected)
@@ -54,9 +58,42 @@ export class ProjectComponent implements OnInit {
 
   addSelection(id: any, currency: any){
     this.tdid = id
-    console.log(id, currency)
+    this.temp = {id,currency}
+    setTimeout(() => {this.tdid = undefined; this.temp = undefined}, 3000)
   }
+
+  removeSelection(id: any, currency: any){
+    this.tdidtwo = id
+    this.temp = {id,currency}
+    setTimeout(() => {this.tdidtwo = undefined; this.temp = undefined}, 3000)
+  }
+
+
+  addCurr(){
+    if (this.temp === undefined){
+      alert("Make a selection!")
+    } else{
+      if (this.selectedCurrencies.find((item) => item.id === this.temp.id && item.currency !== null)){
+        alert("Currency already selected")
+      } else{
+        this.selectedCurrencies = this.selectedCurrencies.map((item) => (item.id === this.temp.id ? {...item, ...this.temp} : item ))
+        console.log(this.selectedCurrencies)
+      }
+    }
+  }
+
+  removeCurr(){
+    if (this.temp === undefined){
+      alert("Make a selection")
+    } else if(this.temp.currency === null){
+      alert("Make a valid selection")
+    } else{
+      this.selectedCurrencies = this.selectedCurrencies.map((item) => (item.id === this.temp.id ? {...item, ...{id: item.id, currency: null}} : item ))
+    }
+  }
+
   ngOnInit(): void {
+    this.curService.currencies.map((item) => (this.selectedCurrencies.push({id:item.id, currency:null })))
 
     this.tdStyle = 'td-default'
 

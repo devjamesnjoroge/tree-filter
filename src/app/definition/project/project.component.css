@@ -69,6 +69,7 @@ table {
     padding: 8px;
     height: 1.5em;
     min-width: 12vw;
+    max-height: 3em!important;
   }
 
   th {
@@ -76,6 +77,7 @@ table {
     text-align: left;
     padding: 8px;
     height: 1.5em;
+    max-height: 3em!important;
   }
   
   tr:nth-child(odd) {
@@ -149,5 +151,5 @@ span{
 }
 
 .td-active{
-    background-color: red;
+    background-color: rgb(175, 0, 0)
 }

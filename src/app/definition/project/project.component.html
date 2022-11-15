@@ -163,7 +163,7 @@
                     <table>
                         <tr><th>Repository</th></tr>
                         <tr *ngFor="let currency of constCurrencies">
-                            <td [ngClass]="(tdid === currency.id)?'td-active':'td-default'" (click)="addSelection(currency.id, currency.currency)">USD – United States Dollar
+                            <td [ngClass]="(tdid === currency.id)?'td-active':'td-default'" (click)="addSelection(currency.id, currency.currency)">{{currency.currency}}
                         </td>
                         </tr>
                     </table>
@@ -171,16 +171,19 @@
                     <!-- Shifting Currency Arrows -->
 
                     <div class="arrows-container">
-                        <mat-icon class="mat-icon" [ngStyle]="{'color':'red'}" aria-hidden="false" aria-label="Add Currency icon" fontIcon="arrow_forward"></mat-icon>
-                        <mat-icon class="mat-icon" [ngStyle]="{'color':'red'}" aria-hidden="false" aria-label="Remove Currency icon" fontIcon="arrow_back"></mat-icon>
+                        <mat-icon (click)="addCurr()" class="mat-icon" [ngStyle]="{'color':'red'}" aria-hidden="false" aria-label="Add Currency icon" fontIcon="arrow_forward"></mat-icon>
+                        <mat-icon (click)="removeCurr()" class="mat-icon" [ngStyle]="{'color':'red'}" aria-hidden="false" aria-label="Remove Currency icon" fontIcon="arrow_back"></mat-icon>
                     </div>
 
                     <!-- Input currency table -->
 
                     <table>
                         <tr><th>Selection</th></tr>
-                        <tr *ngFor="let currency of constCurrencies"><td>
-                        </td></tr>
+                        <tr *ngFor="let currency of selectedCurrencies" >
+                            <td [ngClass]="(tdidtwo === currency.id)?'td-active':'td-default'" (click)="removeSelection(currency.id, currency.currency)">
+                            {{currency.currency}}
+                        </td>
+                    </tr>
                     </table>
                 </div>
                 
