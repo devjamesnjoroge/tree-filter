@@ -62,11 +62,14 @@ export class ProjectComponent implements OnInit {
 
   optional: any[] = ["project_description", "project_code", "project_cost_code"]
 
+  emptySubmissions: any[] = [undefined, null, ""]
+
   emptyRequiredFields: any[] = []
 
   saveProject(){
+
     this.emptyRequiredFields = []
-    
+
     this.project = {
       project_name: this.projectName,
       project_description: this.projectDesc,
@@ -77,12 +80,14 @@ export class ProjectComponent implements OnInit {
       project_cost_code: this.projectCostCode,
       end_date: this.endDate,
       location: this.location,
+      currencies: this.selectedCurrencies.find((item) => item.currency !== null) ? this.selectedCurrencies.filter((item) => (item.currency !== null)) : null,
     }
 
 
     for (const key in this.project){
-      if (this.project[key] === undefined && !this.optional.includes(key, 0)){
+      if ( this.emptySubmissions.includes(this.project[key]) && !this.optional.includes(key, 0)){
         this.emptyRequiredFields.push(key)
+        console.log(`${key} : ${this.project[key]}`)
       }
     }
 
