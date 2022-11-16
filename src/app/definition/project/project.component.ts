@@ -62,7 +62,11 @@ export class ProjectComponent implements OnInit {
 
   optional: any[] = ["project_description", "project_code", "project_cost_code"]
 
+  emptyRequiredFields: any[] = []
+
   saveProject(){
+    this.emptyRequiredFields = []
+    
     this.project = {
       project_name: this.projectName,
       project_description: this.projectDesc,
@@ -78,10 +82,13 @@ export class ProjectComponent implements OnInit {
 
     for (const key in this.project){
       if (this.project[key] === undefined && !this.optional.includes(key, 0)){
-        alert(`${key} is a required value`)
+        this.emptyRequiredFields.push(key)
       }
     }
 
+    if (this.emptyRequiredFields.length !== 0){
+      alert(`Required fields ${this.emptyRequiredFields}`)
+    }
   }
 
 
