@@ -47,15 +47,14 @@
                 <div class="desc-col-1">
                     <div class="input-control">
                         <label for="view">Industry</label>
-                        <select name="view" id="view">
+                        <select name="view" [(ngModel)]="industrySelected" (change)="industryChange()">
+
                             <option value="blank">        
                             </option>
-                            <option value="Industry">
-                                <label class="check" for="industry">Industry</label>
+                            <option matNativeControl *ngFor="let industry of industries" value="{{industry.id}}">
+                                <label class="check" for="industry">{{industry.industry_name}}</label>
                             </option>
-                            <option value="Segment">
-                                <label class="check" for="segment">Segment</label>
-                            </option>
+            
                         </select>
                     </div>
                     <div class="input-control">
@@ -95,15 +94,14 @@
                 <div class="desc-col-2">
                     <div class="input-control">
                         <label for="view">Segment</label>
-                        <select name="view" id="view">
+                        <select name="view" [(ngModel)]="segmentSelected">
+
                             <option value="blank">        
                             </option>
-                            <option value="Industry">
-                                <label class="check" for="industry">Industry</label>
+                            <option matNativeControl *ngFor="let segment of segments" value="{{segment.segment_name}}">
+                                <label class="check" for="industry">{{segment.segment_name}}</label>
                             </option>
-                            <option value="Segment">
-                                <label class="check" for="segment">Segment</label>
-                            </option>
+            
                         </select>
                     </div>
                     <div class="input-control">

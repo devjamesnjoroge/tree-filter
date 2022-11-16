@@ -3,6 +3,7 @@ import { PageSettingsModel, SortSettingsModel, FilterSettingsModel } from '@sync
 import {DataManager, WebApiAdaptor} from '@syncfusion/ej2-data';
 import { RegionService } from 'src/app/region.service';
 import { CurrencyService } from 'src/app/service/currency.service';
+import { IndustryService } from 'src/app/service/industry.service';
 
 @Component({
   selector: 'app-project',
@@ -13,7 +14,7 @@ export class ProjectComponent implements OnInit {
 
   tdStyle!: string;
 
-  constructor(private service: RegionService, private curService: CurrencyService) { }
+  constructor(private service: RegionService, private curService: CurrencyService, private indService: IndustryService) { }
 
   data: any[] =[]
 
@@ -23,15 +24,23 @@ export class ProjectComponent implements OnInit {
 
   regions: any[] = this.service.regions
 
+  industries: any[] = this.indService.industries
+
   constCurrencies : any[] = this.curService.currencies
 
   selectedCurrencies: any[] = []
 
   regionSelected: string = "blank";
 
+  industrySelected: string = "blank";
+
   countrySelected!: string;
 
+  segmentSelected!: string;
+
   countries: any[] = []
+
+  segments: any[] =[]
 
   temp!: any;
 
@@ -56,6 +65,11 @@ export class ProjectComponent implements OnInit {
     console.log("event")
   }
 
+  industryChange(){
+    this.segments = this.indService.segments.filter((item)  => (item.parentId === parseInt(this.industrySelected)))
+    console.log(this.industrySelected)
+  }
+
   addSelection(id: any, currency: any){
     this.tdid = id
     this.temp = {id,currency}
@@ -78,6 +92,8 @@ export class ProjectComponent implements OnInit {
       } else{
         this.selectedCurrencies = this.selectedCurrencies.map((item) => (item.id === this.temp.id ? {...item, ...this.temp} : item ))
         console.log(this.selectedCurrencies)
+        this.selectedCurrencies = this.selectedCurrencies.filter((item) => item.id !== this.temp.id)
+        this.selectedCurrencies.unshift(this.temp)
       }
     }
   }
@@ -89,6 +105,8 @@ export class ProjectComponent implements OnInit {
       alert("Make a valid selection")
     } else{
       this.selectedCurrencies = this.selectedCurrencies.map((item) => (item.id === this.temp.id ? {...item, ...{id: item.id, currency: null}} : item ))
+      this.selectedCurrencies = this.selectedCurrencies.filter((item) => item.currency !== null)
+      this.constCurrencies.forEach((item) => {if (this.selectedCurrencies.find((selected) => selected.id === item.id)){}else{this.selectedCurrencies.push({id:item.id, currency:null})}})
     }
   }
 
