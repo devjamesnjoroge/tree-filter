@@ -1,7 +1,7 @@
 <section>
     <header>
         <div class="btns">
-            <button class="btn btn-col">Save</button>
+            <button class="btn btn-col" (click)="saveProject()" >Save</button>
             <button class="btn btn-col">Cancel</button>
             <button class="btn btn-col">Next</button>
         </div>
@@ -59,11 +59,11 @@
                     </div>
                     <div class="input-control">
                         <label for="cost-code">Project Name</label>
-                        <input type="text">
+                        <input type="text" [(ngModel)]="projectName">
                     </div>
                     <div class="input-control">
                         <label for="cost-code">Project Description</label>
-                        <input type="text">
+                        <input type="text" [(ngModel)]="projectDesc">
                     </div>
                     <div class="input-control">
                     <label for="view">Region</label>
@@ -106,11 +106,11 @@
                     </div>
                     <div class="input-control">
                         <label for="cost-code">Project code</label>
-                        <input type="text">
+                        <input type="text" [(ngModel)]="projectCode">
                     </div>
                     <div class="input-control">
                         <label for="cost-code">Start Date</label>
-                        <input type="date">
+                        <input type="month" [(ngModel)]="startDate">
                     </div>
                     <div class="input-control">
                     <label for="view">Country</label>
@@ -134,15 +134,15 @@
                     <br>
                     <div class="input-control">
                         <label for="cost-code">Project Cost Code</label>
-                        <input type="text">
+                        <input type="text" [(ngModel)]="projectCostCode">
                     </div>
                     <div class="input-control">
                         <label for="cost-code">End Date</label>
-                        <input type="date">
+                        <input type="month" [(ngModel)]="endDate">
                     </div>
                     <div class="input-control">
                         <label for="cost-code">Location</label>
-                        <input type="text">
+                        <input type="text" [(ngModel)]="location">
                     </div>
                 </div>
             </div>

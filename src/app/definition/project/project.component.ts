@@ -44,6 +44,47 @@ export class ProjectComponent implements OnInit {
 
   temp!: any;
 
+  projectName!:string;
+
+  projectDesc!:string;
+
+  projectCode!:string;
+
+  startDate!:Date;
+
+  projectCostCode!:string;
+
+  endDate!:string;
+
+  location!:string;
+
+  project!: any;
+
+  optional: any[] = ["project_description", "project_code", "project_cost_code"]
+
+  saveProject(){
+    this.project = {
+      project_name: this.projectName,
+      project_description: this.projectDesc,
+      segment: this.segmentSelected,
+      project_code:this.projectCode,
+      start_date: this.startDate,
+      country: this.countrySelected,
+      project_cost_code: this.projectCostCode,
+      end_date: this.endDate,
+      location: this.location,
+    }
+
+
+    for (const key in this.project){
+      if (this.project[key] === undefined && !this.optional.includes(key, 0)){
+        alert(`${key} is a required value`)
+      }
+    }
+
+  }
+
+
   print(){
     alert(this.regionSelected)
   }
