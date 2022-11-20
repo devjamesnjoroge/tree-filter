@@ -85,10 +85,13 @@ export class ProjectComponent implements OnInit {
 
 
     for (const key in this.project){
+      
+      console.log(`${key} : ${JSON.stringify(this.project[key])}`)
+
       if ( this.emptySubmissions.includes(this.project[key]) && !this.optional.includes(key, 0)){
         this.emptyRequiredFields.push(key)
-        console.log(`${key} : ${this.project[key]}`)
       }
+
     }
 
     if (this.emptyRequiredFields.length !== 0){
@@ -164,9 +167,17 @@ export class ProjectComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.curService.currencies.map((item) => (this.selectedCurrencies.push({id:item.id, currency:null })))
 
     this.tdStyle = 'td-default'
+
+    this.curService.currencies.length === 0? this.curService.getAllData() : console.log()
+
+    setTimeout(() => {
+      this.constCurrencies = this.curService.currencies
+      this.curService.currencies.forEach((item) => {
+        this.selectedCurrencies.push({id: item.id, currency: null})
+      })
+    }, 1500)
 
     this.pageSettings = {pageSize:10}
     this.sortSettings = {

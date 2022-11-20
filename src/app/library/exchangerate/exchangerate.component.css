@@ -1,0 +1,44 @@
+
+table {
+  width: 90vw!important;
+  overflow-x: hidden!important;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  border: 2px solid #dddddd;
+  box-shadow: 1px 1px 0px #999,
+  2px 2px 0px #999,
+  3px 3px 0px #999,
+  4px 4px 0px #999,
+  5px 5px 0px #999,
+  6px 6px 0px #999;
+  margin: 2em!important;
+}
+
+td {
+  border: 1px solid #ffffff;
+  text-align: left;
+  padding: 8px!important;
+  height: 1.5em;
+  min-width: 12vw;
+  max-height: 3em!important;
+}
+
+th {
+  border: 1px solid #a7a7a7;
+  text-align: left;
+  padding: 8px!important;
+  height: 1.5em;
+  max-height: 3em!important;
+}
+
+tr:nth-child(odd) {
+  background-color: #dddddd;
+
+}
+
+.td-active{
+  background-color: red!important;
+}

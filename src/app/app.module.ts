@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,15 +11,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
-
+import { ExchangerateComponent } from './library/exchangerate/exchangerate.component';
+import {MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectComponent,
-    MainComponent
+    MainComponent,
+    ExchangerateComponent,
+    
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     TreeGridModule,
@@ -26,9 +32,11 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     ReactiveFormsModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
-  providers: [PageService, SortService, FilterService],
+  providers: [PageService, SortService, FilterService,  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
