@@ -14,6 +14,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { ExchangerateComponent } from './library/exchangerate/exchangerate.component';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableExporterModule } from 'mat-table-exporter';
+
 
 @NgModule({
   declarations: [
@@ -32,9 +34,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatIconModule,
     ReactiveFormsModule,
     FormsModule,
+    MatTableExporterModule,
     MatSelectModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    
   ],
   providers: [PageService, SortService, FilterService,  ],
   bootstrap: [AppComponent]

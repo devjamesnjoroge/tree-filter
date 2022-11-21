@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CurrencyService } from 'src/app/service/currency.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 @Component({
@@ -10,6 +11,9 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./exchangerate.component.css']
 })
 export class ExchangerateComponent implements OnInit {
+
+  @ViewChild(MatPaginator, {static: true}) paginator !: MatPaginator;
+  
 
   ELEMENT_DATA = [
     {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
@@ -27,7 +31,7 @@ export class ExchangerateComponent implements OnInit {
   constructor(private curr: CurrencyService, private http: HttpClient) { }
 
   displayedColumns!:any
-  dataSource!:any
+  dataSource!:MatTableDataSource<Element>
   temp!:any;
 
   finalCall(){
@@ -38,7 +42,9 @@ export class ExchangerateComponent implements OnInit {
       this.displayedColumns = this.curr.displayedColumns;
 
       console.log(this.curr.displayedColumns)
-      this.dataSource = this.curr.rates
+      this.dataSource = new MatTableDataSource<Element>(this.curr.rates)
+      this.dataSource.paginator = this.paginator
+      
     }, 3500)
   }
 

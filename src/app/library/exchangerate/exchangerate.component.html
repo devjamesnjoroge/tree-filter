@@ -1,4 +1,9 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<div class="container">
+  <button class="btn" mat-raised-button (click)="exporter.exportTable('csv')">Export Data</button>
+
+</div>
+
+<table mat-table matTableExporter [dataSource]="dataSource" class="mat-elevation-z8" #exporter="matTableExporter">
   
   <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page"></mat-paginator>
     <!--- Note that these columns can be defined in any order.
