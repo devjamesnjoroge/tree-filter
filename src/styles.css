@@ -14,7 +14,7 @@
     display: none!important;
 }
 html, body { height: 100%; max-width:100%!important }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow-x: hidden;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 
 td{
     cursor: pointer;

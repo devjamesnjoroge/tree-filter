@@ -3,7 +3,7 @@
 
 </div>
 
-<table mat-table matTableExporter [dataSource]="dataSource" class="mat-elevation-z8" #exporter="matTableExporter">
+<table mat-table matTableExporter [dataSource]="dataSource" class="mat-elevation-z8 mat-table" #exporter="matTableExporter">
   
   <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page"></mat-paginator>
     <!--- Note that these columns can be defined in any order.
@@ -17,6 +17,6 @@
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="alert(row)" [ngClass]="(temp === row.currencies)?'td-active':'td-default'"></tr>
-  </table>
+  </table> 
   
   
