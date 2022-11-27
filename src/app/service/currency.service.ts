@@ -72,6 +72,45 @@ export class CurrencyService {
 
       console.log(this.exchange_rate_has);
 
+      // GET the set of common years or unique years from this.exchange_rate_has
+
+    let year:any[] = []
+    this.exchange_rate_has.forEach((item: any) => {
+      if (!year.includes(item.Year)) {
+        year.push(item.Year);
+      }
+    });
+
+    
+
+    // Do math floor this.exchange_rate_has/year
+
+    let column = Math.floor(this.exchange_rate_has.length/this.currencies.length)
+
+    // Create a new array with an object with currency as key to currencyName and year as key to ExchangeRateConversionValue
+
+    let exchange_rate_table:any[] = []
+
+    this.currencies.forEach((item: any) => {
+      console.log(item)
+      let obj:any = {}  
+      obj['currency'] = item.CurrencyName
+      // Loop through years
+      year.forEach((year: any) => {
+        this.exchange_rate_has.forEach((item2: any) => {
+          console.log(item2)
+          if(item2.CurrencyName === item.CurrencyName && item2.Year === year){
+            obj[item2.Year] = item2.ExchangeRateConversionValue
+          }
+        });
+      });
+     this.rates.push(obj)
+    });
+
+
+    console.log(this.rates)
+
+
       // this.currencies.forEach((element: any) => {
 
       //   // this.exchange_rate.forEach((item: any) => {
@@ -86,19 +125,19 @@ export class CurrencyService {
       // console.log(this.exchange_rate_has);
       // console.log(this.exchange_rate)
 
-      this.exchange_rate_has.forEach((element: any) => {
-        let first: any = {};
-        let obj1: any = {};
-        let obj!: any;
-        element.forEach((item: any) => {
-          console.log(this.currencies[item.currency]?.currency, 'ok');
-          first['currencies'] = this.currencies[item.currency - 1]?.currency;
-          obj1[item.year] = item.rate;
-          obj = Object.assign(obj1, first);
-        });
-        console.log(obj);
-        this.rates.push(obj);
-      });
+      // this.exchange_rate_has.forEach((element: any) => {
+      //   let first: any = {};
+      //   let obj1: any = {};
+      //   let obj!: any;
+      //   element.forEach((item: any) => {
+      //     console.log(this.currencies[item.currency]?.currency, 'ok');
+      //     first['currencies'] = this.currencies[item.currency - 1]?.currency;
+      //     obj1[item.year] = item.rate;
+      //     obj = Object.assign(obj1, first);
+      //   });
+      //   console.log(obj);
+      //   this.rates.push(obj);
+      // });
 
       const temp: any = [];
 
@@ -110,7 +149,7 @@ export class CurrencyService {
 
       this.displayedColumns = Array.from(new Set(temp)).sort().reverse();
 
-      let sock = true;
+      // let sock = true;
     });
   }
 }

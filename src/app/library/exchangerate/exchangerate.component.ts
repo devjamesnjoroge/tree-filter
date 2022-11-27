@@ -40,12 +40,8 @@ export class ExchangerateComponent implements OnInit {
 
       console.log(this.curr.exchange_rate_has);
       // this.dataSource = new MatTableDataSource<Element>(this.curr.rates);
-      this.dataSource = this.curr.exchange_rate_has;
-      this.dataSource.paginator = this.paginator;
+      this.dataSource = this.curr.rates;
 
-      if (this.dataSource) {
-        console.log(this.dataSource.paginator);
-      }
     }, 3500);
   }
 

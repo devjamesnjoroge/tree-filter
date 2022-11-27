@@ -75,3 +75,19 @@ display: table-row;
 tbody{
   overflow-x: scroll!important;
 }
+
+input{
+  outline: none!important;
+  border:none;
+  background-color: transparent;
+  border-bottom: 1px solid #a7a7a7;
+  padding: 1em;
+  
+  /* 3D effect */
+  box-shadow: 1px 1px 0px #999,
+              2px 2px 0px #999,
+              3px 3px 0px #999,;
+  border-radius: 5px;
+
+
+}
