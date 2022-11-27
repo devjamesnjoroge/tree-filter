@@ -154,7 +154,7 @@
                     <table>
                         <tr><th>Repository</th></tr>
                         <tr *ngFor="let currency of constCurrencies">
-                            <td [ngClass]="(tdid === currency.id)?'td-active':'td-default'" (click)="addSelection(currency.id, currency.currency)">{{currency.currency}}
+                            <td [ngClass]="(tdid === currency.id)?'td-active':'td-default'" (click)="addSelection(currency.id, currency.CurrencyName)">{{currency.CurrencyName}}
                         </td>
                         </tr>
                     </table>
@@ -171,8 +171,8 @@
                     <table>
                         <tr><th>Selection</th></tr>
                         <tr *ngFor="let currency of selectedCurrencies" >
-                            <td [ngClass]="(tdidtwo === currency.id)?'td-active':'td-default'" (click)="removeSelection(currency.id, currency.currency)">
-                            {{currency.currency}}
+                            <td [ngClass]="(tdidtwo === currency.id)?'td-active':'td-default'" (click)="removeSelection(currency.id, currency.CurrencyName )">
+                            {{currency.CurrencyName}}
                         </td>
                     </tr>
                     </table>

@@ -9,6 +9,7 @@ table {
   5px 5px 0px #999,
   6px 6px 0px #999;
   margin: 0 2em;
+  border-radius: 5px;
 }
 
 td {

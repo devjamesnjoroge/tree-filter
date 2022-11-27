@@ -80,7 +80,7 @@ export class ProjectComponent implements OnInit {
       project_cost_code: this.projectCostCode,
       end_date: this.endDate,
       location: this.location,
-      currencies: this.selectedCurrencies.find((item) => item.currency !== null) ? this.selectedCurrencies.filter((item) => (item.currency !== null)) : null,
+      currencies: this.selectedCurrencies.find((item) => item.CurrencyName !== null) ? this.selectedCurrencies.filter((item) => (item.CurrencyName !== null)) : null,
     }
 
 
@@ -126,15 +126,15 @@ export class ProjectComponent implements OnInit {
     console.log(this.industrySelected)
   }
 
-  addSelection(id: any, currency: any){
+  addSelection(id: any, CurrencyName: any){
     this.tdid = id
-    this.temp = {id,currency}
+    this.temp = {id,CurrencyName}
     setTimeout(() => {this.tdid = undefined; this.temp = undefined}, 3000)
   }
 
-  removeSelection(id: any, currency: any){
+  removeSelection(id: any, CurrencyName: any){
     this.tdidtwo = id
-    this.temp = {id,currency}
+    this.temp = {id,CurrencyName}
     setTimeout(() => {this.tdidtwo = undefined; this.temp = undefined}, 3000)
   }
 
@@ -143,7 +143,7 @@ export class ProjectComponent implements OnInit {
     if (this.temp === undefined){
       alert("Make a selection!")
     } else{
-      if (this.selectedCurrencies.find((item) => item.id === this.temp.id && item.currency !== null)){
+      if (this.selectedCurrencies.find((item) => item.id === this.temp.id && item.CurrencyName !== null)){
         alert("Currency already selected")
       } else{
         this.selectedCurrencies = this.selectedCurrencies.map((item) => (item.id === this.temp.id ? {...item, ...this.temp} : item ))
@@ -157,12 +157,12 @@ export class ProjectComponent implements OnInit {
   removeCurr(){
     if (this.temp === undefined){
       alert("Make a selection")
-    } else if(this.temp.currency === null){
+    } else if(this.temp.CurrencyName === null){
       alert("Make a valid selection")
     } else{
-      this.selectedCurrencies = this.selectedCurrencies.map((item) => (item.id === this.temp.id ? {...item, ...{id: item.id, currency: null}} : item ))
-      this.selectedCurrencies = this.selectedCurrencies.filter((item) => item.currency !== null)
-      this.constCurrencies.forEach((item) => {if (this.selectedCurrencies.find((selected) => selected.id === item.id)){}else{this.selectedCurrencies.push({id:item.id, currency:null})}})
+      this.selectedCurrencies = this.selectedCurrencies.map((item) => (item.id === this.temp.id ? {...item, ...{id: item.id, CurrencyName: null}} : item ))
+      this.selectedCurrencies = this.selectedCurrencies.filter((item) => item.CurrencyName !== null)
+      this.constCurrencies.forEach((item) => {if (this.selectedCurrencies.find((selected) => selected.id === item.id)){}else{this.selectedCurrencies.push({id:item.id, CurrencyName:null})}})
     }
   }
 
@@ -175,7 +175,7 @@ export class ProjectComponent implements OnInit {
     setTimeout(() => {
       this.constCurrencies = this.curService.currencies
       this.curService.currencies.forEach((item) => {
-        this.selectedCurrencies.push({id: item.id, currency: null})
+        this.selectedCurrencies.push({id: item.id, CurrencyName: null})
       })
     }, 1500)
 

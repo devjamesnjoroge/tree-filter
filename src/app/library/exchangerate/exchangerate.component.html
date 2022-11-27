@@ -1,6 +1,7 @@
 <div class="container">
   <button class="btn" mat-raised-button (click)="exporter.exportTable('csv')">Export Data</button>
-
+  <button class="btn" mat-raised-button >New Library</button>
+  <button class="btn" mat-raised-button (click)="editMode=!editMode" >Edit toggle</button>
 </div>
 
 <table mat-table matTableExporter [dataSource]="dataSource" class="mat-elevation-z8 mat-table" #exporter="matTableExporter">
@@ -12,12 +13,28 @@
     <!-- Position Column -->
     <ng-container *ngFor="let disCol of displayedColumns; let colIndex = index" matColumnDef="{{disCol}}">
       <th mat-header-cell *matHeaderCellDef> {{disCol}}</th>
+     <div *ngIf="editMode==false">
       <td mat-cell *matCellDef="let element">
-          <input
+        <span>{{element[disCol]}}</span>
+          <!-- <input
             required
             [(ngModel)]="element[disCol]"
+            *ngIf="currencies.indexOf(disCol) > -1"
           /> 
+           -->
          </td>
+     </div>
+      <div *ngIf="editMode==true">
+        <td  mat-cell *matCellDef="let element">
+          <!-- <span>{{element[disCol]}}</span> -->
+              <input
+              required
+              [(ngModel)]="element[disCol]"
+            /> 
+            
+           </td>
+      </div>
+
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
