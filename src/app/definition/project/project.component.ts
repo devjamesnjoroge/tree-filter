@@ -191,6 +191,8 @@ export class ProjectComponent implements OnInit {
       {nameId: 2,treeView: "Industry", parentId: 1},
       {nameId: 3,treeView: "project"},
     ]
+
+    this.indService.getIndustries()
   }
 
 }

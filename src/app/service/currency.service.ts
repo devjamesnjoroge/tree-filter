@@ -70,7 +70,7 @@ export class CurrencyService {
         });
       });
 
-      console.log(this.exchange_rate_has);
+      // console.log(this.exchange_rate_has);
 
       // GET the set of common years or unique years from this.exchange_rate_has
 
@@ -92,13 +92,13 @@ export class CurrencyService {
     let exchange_rate_table:any[] = []
 
     this.currencies.forEach((item: any) => {
-      console.log(item)
+      // console.log(item)
       let obj:any = {}  
       obj['currency'] = item.CurrencyName
       // Loop through years
       year.forEach((year: any) => {
         this.exchange_rate_has.forEach((item2: any) => {
-          console.log(item2)
+          // console.log(item2)
           if(item2.CurrencyName === item.CurrencyName && item2.Year === year){
             obj[item2.Year] = item2.ExchangeRateConversionValue
           }
@@ -108,7 +108,7 @@ export class CurrencyService {
     });
 
 
-    console.log(this.rates)
+    // console.log(this.rates)
 
 
       // this.currencies.forEach((element: any) => {
